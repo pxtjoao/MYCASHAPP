@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { MenuDropdown } from './MenuDropdown';
+import { Logo } from '../common/Logo';
 
 export function HeaderMobile() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);

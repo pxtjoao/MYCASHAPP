@@ -10,6 +10,7 @@ import {
 import { Link, useLocation } from 'react-router-dom';
 import { clsx } from 'clsx';
 import { twMerge } from 'tailwind-merge';
+import { Logo } from '../common/Logo';
 
 interface SidebarProps {
     isCollapsed: boolean;
@@ -36,16 +37,11 @@ export function Sidebar({ isCollapsed, toggleSidebar }: SidebarProps) {
         >
             {/* Header / Logo */}
             <div className="h-20 flex items-center px-6">
-                <div className="flex items-center gap-3 overflow-hidden">
-                    <div className="w-8 h-8 bg-primary-500 rounded-lg flex items-center justify-center text-secondary-900 font-bold shrink-0">
-                        my
-                    </div>
-                    <span className={clsx(
-                        "font-bold text-xl text-secondary-900 transition-opacity duration-300 whitespace-nowrap",
-                        isCollapsed ? "opacity-0 w-0" : "opacity-100"
-                    )}>
-                        mycash+
-                    </span>
+                <div className={clsx(
+                    "transition-all duration-300",
+                    isCollapsed ? "opacity-100 w-full flex justify-center" : "w-full"
+                )}>
+                    <Logo variant={isCollapsed ? 'small' : 'default'} />
                 </div>
             </div>
 

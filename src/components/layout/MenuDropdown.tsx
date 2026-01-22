@@ -10,6 +10,7 @@ import {
     User
 } from 'lucide-react';
 import { clsx } from 'clsx';
+import { Logo } from '../common/Logo';
 
 interface MenuDropdownProps {
     isOpen: boolean;
