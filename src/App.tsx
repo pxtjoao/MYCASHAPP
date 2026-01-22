@@ -4,20 +4,21 @@ import Transactions from './pages/Transactions';
 import Cards from './pages/Cards';
 import Goals from './pages/Goals';
 import Profile from './pages/Profile';
+import { MainLayout } from './components/layout/MainLayout';
 
 function App() {
     return (
         <BrowserRouter>
-            <div className="min-h-screen bg-background-400 font-sans text-secondary-900">
-                <Routes>
+            <Routes>
+                <Route element={<MainLayout />}>
                     <Route path="/" element={<Dashboard />} />
                     <Route path="/transactions" element={<Transactions />} />
                     <Route path="/cards" element={<Cards />} />
                     <Route path="/goals" element={<Goals />} />
                     <Route path="/profile" element={<Profile />} />
-                    <Route path="*" element={<Navigate to="/" replace />} />
-                </Routes>
-            </div>
+                </Route>
+                <Route path="*" element={<Navigate to="/" replace />} />
+            </Routes>
         </BrowserRouter>
     );
 }

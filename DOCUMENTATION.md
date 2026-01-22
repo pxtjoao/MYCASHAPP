@@ -9,7 +9,7 @@
   - [x] Análise Visual Fina (Figma Consultado)
 
 - [x] **PROMPT 1: Estrutura Base e Configuração**
-- [ ] **PROMPT 2: Sistema de Layout e Navegação Desktop**
+- [x] **PROMPT 2: Sistema de Layout e Navegação Desktop**
 - [ ] **PROMPT 3: Sistema de Layout e Navegação Mobile**
 - [ ] **PROMPT 4: Context Global e Gerenciamento de Estado**
 - [ ] **PROMPT 5: Cards de Resumo Financeiro**
@@ -64,5 +64,22 @@ Status: ✅ Concluído | Data: 22/01/2026 | Build: ✅ (2 tentativas)
 **Build:**
 - Erro inicial com PostCSS/Tailwind v4 (requires ESM/updates)
 - Corrigido fazendo downgrade para Tailwind v3.4.17 (estável/compatível)
+
+---
+
+### PROMPT 2: Sistema de Layout e Navegação Desktop
+Status: ✅ Concluído | Data: 22/01/2026 | Build: ✅ (1 tentativa após correção do prompt 1)
+**Implementado:**
+- `Sidebar.tsx`: Componente de navegação lateral com estados Expandido/Colapsado.
+  - Animações de largura e opacidade (transition-all duration-300).
+  - Tooltips flutuantes no estado colapsado.
+  - Indicador de rota ativa (bg-secondary-900 + lime icon).
+- `MainLayout.tsx`: Wrapper que gerencia o estado da sidebar e ajusta a margem do conteúdo principal (`lg:pl-64` / `lg:pl-20`).
+- `App.tsx`: Atualizado para usar o `MainLayout` como Route wrapper.
+- Responsividade: Sidebar oculta em mobile/tablet (`hidden lg:flex`), preparada para o Prompt 3.
+**Tokens:**
+- `primary-500` (Lime) para destaques.
+- `secondary-900` e `secondary-50` para estrutura.
+- `surface-500` e `background-400` para fundos.
 
 ---
