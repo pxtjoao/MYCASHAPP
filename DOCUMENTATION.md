@@ -12,7 +12,7 @@
 - [x] **PROMPT 2: Sistema de Layout e Navegação Desktop**
 - [x] **PROMPT 3: Sistema de Layout e Navegação Mobile**
 - [x] **PROMPT 4: Context Global e Gerenciamento de Estado**
-- [ ] **PROMPT 5: Cards de Resumo Financeiro**
+- [x] **PROMPT 5: Cards de Resumo Financeiro**
 - [ ] **PROMPT 6: Header do Dashboard com Controles**
 - [ ] **PROMPT 7: Carrossel de Gastos por Categoria**
 - [ ] **PROMPT 8: Gráfico de Fluxo Financeiro**
@@ -112,5 +112,19 @@ Status: ✅ Concluído | Data: 22/01/2026 | Build: ✅ (1 tentativa)
 **Refatoração:**
 - Correção de Warning na `Sidebar`, `HeaderMobile` e `MenuDropdown` (Logo component declarado mas não usado).
 - Ajuste na cor de tema do cartão mockado.
+
+---
+
+### PROMPT 5: Cards de Resumo Financeiro
+Status: ✅ Concluído | Data: 22/01/2026 | Build: ✅ (1 tentativa)
+**Implementado:**
+- `BalanceCard`: Fundo escuro (`bg-secondary-900`) com elemento decorativo blur (verde-limão). Animação de contagem e badge de crescimento.
+- `IncomeCard` e `ExpenseCard`: Estilo clean (fundo branco) com ícones indicativos de entrada/saída.
+- `AnimatedValue`: Componente utilitário para transição suave de números.
+- Integração no `Dashboard`: Grid responsivo (`grid-cols-1 md:grid-cols-3`).
+**Tokens:**
+- `secondary-900` e `primary-500` (BalanceCard).
+- `surface-500` (Textos claros).
+- `red-50` / `red-600` (ExpenseCard).
 
 ---
