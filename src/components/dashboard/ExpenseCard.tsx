@@ -4,16 +4,8 @@ import { formatCurrency } from '../../utils/format';
 import { AnimatedValue } from '../common/AnimatedValue';
 
 export function ExpenseCard() {
-    const { transactions } = useFinance();
-
-    // Basic calculation logic
-    const calculateExpenses = () => {
-        return transactions
-            .filter(t => t.type === 'expense' && t.status === 'completed')
-            .reduce((acc, t) => acc + t.value, 0);
-    };
-
-    const totalExpenses = calculateExpenses();
+    const { financialSummary } = useFinance();
+    const totalExpenses = financialSummary.totalExpenses;
 
     return (
         <div className="w-full h-[180px] bg-white rounded-3xl p-6 flex flex-col justify-between border border-secondary-50 shadow-sm">

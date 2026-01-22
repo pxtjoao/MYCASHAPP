@@ -13,7 +13,7 @@
 - [x] **PROMPT 3: Sistema de Layout e Navegação Mobile**
 - [x] **PROMPT 4: Context Global e Gerenciamento de Estado**
 - [x] **PROMPT 5: Cards de Resumo Financeiro**
-- [ ] **PROMPT 6: Header do Dashboard com Controles**
+- [x] **PROMPT 6: Header do Dashboard com Controles**
 - [ ] **PROMPT 7: Carrossel de Gastos por Categoria**
 - [ ] **PROMPT 8: Gráfico de Fluxo Financeiro**
 - [ ] **PROMPT 9: Widget de Cartões de Crédito**
@@ -126,5 +126,20 @@ Status: ✅ Concluído | Data: 22/01/2026 | Build: ✅ (1 tentativa)
 - `secondary-900` e `primary-500` (BalanceCard).
 - `surface-500` (Textos claros).
 - `red-50` / `red-600` (ExpenseCard).
+
+---
+
+### PROMPT 6: Header do Dashboard com Controles
+Status: ✅ Concluído | Data: 22/01/2026 | Build: ✅ (1 tentativa com correção)
+**Implementado:**
+- `DashboardHeader`: Barra de ferramentas responsiva (wrap no mobile).
+- `FilterButton`: Popover flutuante para filtro de tipo (All/Income/Expense).
+- `DateRangePicker`: Seletor de data customizado com suporte a range, presets (Mês, Ano, etc) e navegação entre meses.
+- `MemberSelector`: Seleção de membro por avatar com highlight visual.
+- `Pequisa em tempo real`: Input debounce connected to Context.
+**Refatorações:**
+- Correção de z-index e posicionamento dos popovers para evitar clipping.
+- Ajuste no estilo do botão "Nova Transação" (rounded-xl) conforme solicitado.
+- Fix de variáveis não utilizadas no DateRangePicker.
 
 ---

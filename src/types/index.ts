@@ -63,3 +63,12 @@ export interface DateRange {
     startDate: Date;
     endDate: Date;
 }
+
+export type TransactionFilterType = 'all' | 'income' | 'expense';
+
+export interface DashboardFilters {
+    searchText: string;
+    transactionType: TransactionFilterType;
+    dateRange: DateRange;
+    selectedMemberId: string | null;
+}

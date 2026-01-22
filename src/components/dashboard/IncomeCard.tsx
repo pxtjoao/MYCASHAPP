@@ -4,16 +4,8 @@ import { formatCurrency } from '../../utils/format';
 import { AnimatedValue } from '../common/AnimatedValue';
 
 export function IncomeCard() {
-    const { transactions } = useFinance();
-
-    // Basic calculation logic
-    const calculateIncome = () => {
-        return transactions
-            .filter(t => t.type === 'income' && t.status === 'completed')
-            .reduce((acc, t) => acc + t.value, 0);
-    };
-
-    const totalIncome = calculateIncome();
+    const { financialSummary } = useFinance();
+    const totalIncome = financialSummary.totalIncome;
 
     return (
         <div className="w-full h-[180px] bg-white rounded-3xl p-6 flex flex-col justify-between border border-secondary-50 shadow-sm">

@@ -4,18 +4,8 @@ import { formatCurrency } from '../../utils/format';
 import { AnimatedValue } from '../common/AnimatedValue';
 
 export function BalanceCard() {
-    const { transactions } = useFinance();
-
-    // Basic calculation logic (will be refined later with logic similar to "calculateTotalBalance")
-    const calculateTotalBalance = () => {
-        return transactions
-            .filter(t => t.status === 'completed')
-            .reduce((acc, t) => {
-                return t.type === 'income' ? acc + t.value : acc - t.value;
-            }, 0);
-    };
-
-    const totalBalance = calculateTotalBalance();
+    const { financialSummary } = useFinance();
+    const totalBalance = financialSummary.totalBalance;
     const growthPercentage = 12; // Mocked for now
 
     return (
