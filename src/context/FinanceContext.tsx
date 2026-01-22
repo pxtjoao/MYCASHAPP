@@ -7,7 +7,8 @@ import {
     Goal,
     DashboardFilters,
     TransactionFilterType,
-    DateRange
+    DateRange,
+    CategorySummary
 } from '../types';
 import {
     MOCK_TRANSACTIONS,
@@ -40,6 +41,9 @@ interface FinanceContextType {
         totalIncome: number;
         totalExpenses: number;
     };
+    expensesByCategory: CategorySummary[];
+    // Actions
+    markAsPaid: (transactionId: string) => void;
 }
 
 export const FinanceContext = createContext<FinanceContextType | undefined>(undefined);
@@ -139,11 +143,73 @@ export function FinanceProvider({ children }: { children: ReactNode }) {
         };
     }, [filteredTransactions]);
 
+    // Expenses by Category
+    const expensesByCategory = useMemo(() => {
+        const categoryMap = new Map<string, number>();
+        let totalExpenses = 0;
+
+        filteredTransactions.forEach(t => {
+            if (t.type === 'expense' && t.status === 'completed') {
+                const current = categoryMap.get(t.category) || 0;
+                categoryMap.set(t.category, current + t.value);
+                totalExpenses += t.value;
+            }
+        });
+
+        const colors = [
+            '#84CC16', // lime-500
+            '#111827', // gray-900 (black)
+            '#9CA3AF', // gray-400
+            '#374151', // gray-700
+            '#D1D5DB'  // gray-300
+        ];
+
+        return Array.from(categoryMap.entries())
+            .map(([name, value], index) => ({
+                categoryId: name, // Using name as ID for now
+                name,
+                totalValue: value,
+                percentage: totalExpenses > 0 ? (value / totalExpenses) * 100 : 0,
+                color: colors[index % colors.length]
+            }))
+            .sort((a, b) => b.totalValue - a.totalValue);
+    }, [filteredTransactions]);
+
     // Setters
     const setSearchText = (text: string) => setFilters(prev => ({ ...prev, searchText: text }));
     const setTransactionType = (type: TransactionFilterType) => setFilters(prev => ({ ...prev, transactionType: type }));
     const setDateRange = (range: DateRange) => setFilters(prev => ({ ...prev, dateRange: range }));
     const setSelectedMemberId = (id: string | null) => setFilters(prev => ({ ...prev, selectedMemberId: id }));
+
+    const markAsPaid = (transactionId: string) => {
+        setTransactions(prev => {
+            const tx = prev.find(t => t.id === transactionId);
+            if (!tx) return prev;
+
+            const updatedTransactions = prev.map(t =>
+                t.id === transactionId
+                    ? { ...t, status: 'completed' as const, isPaid: true }
+                    : t
+            );
+
+            // Handle Recurring
+            if (tx.isRecurring) {
+                const nextDate = new Date(tx.date);
+                nextDate.setMonth(nextDate.getMonth() + 1);
+
+                const newTx: Transaction = {
+                    ...tx,
+                    id: crypto.randomUUID(), // Generate new ID
+                    date: nextDate.toISOString(),
+                    status: 'pending',
+                    isPaid: false
+                };
+                return [...updatedTransactions, newTx];
+            }
+
+            return updatedTransactions;
+        });
+    };
 
     return (
         <FinanceContext.Provider value={{
@@ -160,7 +226,9 @@ export function FinanceProvider({ children }: { children: ReactNode }) {
             setDateRange,
             setSelectedMemberId,
             filteredTransactions,
-            financialSummary
+            financialSummary,
+            expensesByCategory,
+            markAsPaid
         }}>
             {children}
         </FinanceContext.Provider>

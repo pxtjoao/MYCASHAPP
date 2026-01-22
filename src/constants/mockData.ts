@@ -34,6 +34,42 @@ export const MOCK_CARDS: CreditCard[] = [
         currentBill: 0,
         theme: 'black',
         lastDigits: '9876'
+    },
+    {
+        id: 'card3',
+        type: 'creditCard',
+        name: 'C6 Carbon',
+        holderId: '1',
+        closingDay: 5,
+        dueDay: 12,
+        limit: 50000,
+        currentBill: 12450.00,
+        theme: 'black',
+        lastDigits: '1122'
+    },
+    {
+        id: 'card4',
+        type: 'creditCard',
+        name: 'Inter Black',
+        holderId: '2',
+        closingDay: 1,
+        dueDay: 10,
+        limit: 10000,
+        currentBill: 1200.50,
+        theme: 'orange', // Using orange as generic or mapping to available themes
+        lastDigits: '3344'
+    },
+    {
+        id: 'card5',
+        type: 'creditCard',
+        name: 'Neon Visa',
+        holderId: '2',
+        closingDay: 15,
+        dueDay: 22,
+        limit: 5000,
+        currentBill: 450.00,
+        theme: 'blue',
+        lastDigits: '5566'
     }
 ] as CreditCard[];
 
@@ -67,6 +103,136 @@ export const MOCK_TRANSACTIONS: Transaction[] = [
         memberId: '1',
         status: 'completed',
         isRecurring: true,
+        isPaid: true
+    },
+    {
+        id: 't3',
+        type: 'expense',
+        value: 1200.00,
+        description: 'Aluguel',
+        category: 'Moradia',
+        date: new Date().toISOString(),
+        accountId: 'acc1',
+        memberId: '1',
+        status: 'completed',
+        isRecurring: true,
+        isPaid: true
+    },
+    {
+        id: 't4',
+        type: 'expense',
+        value: 250.00,
+        description: 'Combustível',
+        category: 'Transporte',
+        date: new Date().toISOString(),
+        accountId: 'acc1',
+        memberId: '1',
+        status: 'completed',
+        isRecurring: false,
+        isPaid: true
+    },
+    {
+        id: 't5',
+        type: 'expense',
+        value: 120.00,
+        description: 'Academia',
+        category: 'Saúde',
+        date: new Date().toISOString(),
+        accountId: 'acc1',
+        memberId: '2',
+        status: 'completed',
+        isRecurring: true,
+        isPaid: true
+    },
+    {
+        id: 't6',
+        type: 'expense',
+        value: 300.00,
+        description: 'Jantar',
+        category: 'Lazer',
+        date: new Date().toISOString(),
+        accountId: 'acc2',
+        memberId: '2',
+        status: 'completed',
+        isRecurring: false,
+        isPaid: true
+    },
+    {
+        id: 't7',
+        type: 'expense',
+        value: 89.90,
+        description: 'Netflix Ultra HD',
+        category: 'Assinaturas',
+        date: new Date(new Date().setDate(new Date().getDate() + 2)).toISOString(), // Due in 2 days
+        accountId: 'card1', // Credit Card ID
+        memberId: '1',
+        status: 'pending',
+        isRecurring: true,
+        isPaid: false
+    },
+    {
+        id: 't8',
+        type: 'expense',
+        value: 1400.00,
+        description: 'Escola das Crianças',
+        category: 'Educação',
+        date: new Date(new Date().setDate(new Date().getDate() + 5)).toISOString(), // Due in 5 days
+        accountId: 'acc1',
+        memberId: '1',
+        status: 'pending',
+        isRecurring: true,
+        isPaid: false
+    },
+    {
+        id: 't9',
+        type: 'expense',
+        value: 450.00,
+        description: 'Manutenção Carro',
+        category: 'Transporte',
+        date: new Date(new Date().setDate(new Date().getDate() + 10)).toISOString(), // Due in 10 days
+        accountId: 'card2',
+        memberId: '1',
+        status: 'pending',
+        isRecurring: false,
+        isPaid: false
+    },
+    {
+        id: 't10',
+        type: 'expense',
+        value: 200.00,
+        description: 'Livros',
+        category: 'Educação',
+        date: new Date().toISOString(),
+        accountId: 'acc1',
+        memberId: '1',
+        status: 'completed', // Completed to show in Carousel
+        isRecurring: false,
+        isPaid: true
+    },
+    {
+        id: 't11',
+        type: 'expense',
+        value: 350.00,
+        description: 'Roupas',
+        category: 'Vestuário',
+        date: new Date().toISOString(),
+        accountId: 'card3',
+        memberId: '2',
+        status: 'completed',
+        isRecurring: false,
+        isPaid: true
+    },
+    {
+        id: 't12',
+        type: 'expense',
+        value: 1200.00,
+        description: 'Novo Monitor',
+        category: 'Tecnologia',
+        date: new Date().toISOString(),
+        accountId: 'card2',
+        memberId: '1',
+        status: 'completed',
+        isRecurring: false,
         isPaid: true
     }
 ];

@@ -66,6 +66,14 @@ export interface DateRange {
 
 export type TransactionFilterType = 'all' | 'income' | 'expense';
 
+export interface CategorySummary {
+    categoryId: string; // Or name if no ID
+    name: string;
+    totalValue: number;
+    percentage: number; // 0-100
+    color?: string;
+}
+
 export interface DashboardFilters {
     searchText: string;
     transactionType: TransactionFilterType;
