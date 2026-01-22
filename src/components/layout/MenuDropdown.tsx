@@ -62,12 +62,7 @@ export function MenuDropdown({ isOpen, onClose }: MenuDropdownProps) {
             >
                 {/* Header inside Dropdown to align with trigger */}
                 <div className="h-20 flex items-center justify-between px-6 border-b border-secondary-50">
-                    <div className="flex items-center gap-3">
-                        <div className="w-8 h-8 bg-primary-500 rounded-lg flex items-center justify-center text-secondary-900 font-bold">
-                            my
-                        </div>
-                        <span className="font-bold text-xl text-secondary-900">mycash+</span>
-                    </div>
+                    <Logo />
 
                     <button
                         onClick={onClose}

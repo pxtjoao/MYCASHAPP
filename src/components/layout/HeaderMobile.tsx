@@ -8,12 +8,7 @@ export function HeaderMobile() {
     return (
         <>
             <header className="lg:hidden h-20 fixed top-0 left-0 right-0 bg-background-400 border-b border-secondary-50 px-6 flex items-center justify-between z-40 transition-transform duration-300">
-                <div className="flex items-center gap-3">
-                    <div className="w-8 h-8 bg-primary-500 rounded-lg flex items-center justify-center text-secondary-900 font-bold">
-                        my
-                    </div>
-                    <span className="font-bold text-xl text-secondary-900">mycash+</span>
-                </div>
+                <Logo />
 
                 {/* User Avatar - Trigger */}
                 <button
