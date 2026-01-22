@@ -10,7 +10,7 @@
 
 - [x] **PROMPT 1: Estrutura Base e Configuração**
 - [x] **PROMPT 2: Sistema de Layout e Navegação Desktop**
-- [ ] **PROMPT 3: Sistema de Layout e Navegação Mobile**
+- [x] **PROMPT 3: Sistema de Layout e Navegação Mobile**
 - [ ] **PROMPT 4: Context Global e Gerenciamento de Estado**
 - [ ] **PROMPT 5: Cards de Resumo Financeiro**
 - [ ] **PROMPT 6: Header do Dashboard com Controles**
@@ -81,5 +81,20 @@ Status: ✅ Concluído | Data: 22/01/2026 | Build: ✅ (1 tentativa após corre�
 - `primary-500` (Lime) para destaques.
 - `secondary-900` e `secondary-50` para estrutura.
 - `surface-500` e `background-400` para fundos.
+
+---
+
+### PROMPT 3: Sistema de Layout e Navegação Mobile
+Status: ✅ Concluído | Data: 22/01/2026 | Build: ✅ (1 tentativa)
+**Implementado:**
+- `HeaderMobile.tsx`: Header fixo (`fixed top-0`) com logo e trigger do menu. Exibido apenas em telas menores que lg (`lg:hidden`).
+- `MenuDropdown.tsx`: Overlay e dropdown menu com animações de entrada (`animate-in slide-in-from-top`).
+  - Navegação completa replicando a sidebar.
+  - Botão de logout.
+  - Fechamento ao clicar fora ou em itens.
+- Integração no `MainLayout.tsx`: Adicionado HeaderMobile e ajuste de padding-top (`pt-20 lg:pt-0`) para compensar o header fixo no mobile.
+**Tokens:**
+- Reutilização dos tokens semânticos e primitivos existentes.
+- Breakpoints: `lg` (1280px) usado como divisor entre layouts mobile e desktop.
 
 ---
