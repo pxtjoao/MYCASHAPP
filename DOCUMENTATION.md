@@ -11,7 +11,7 @@
 - [x] **PROMPT 1: Estrutura Base e Configuração**
 - [x] **PROMPT 2: Sistema de Layout e Navegação Desktop**
 - [x] **PROMPT 3: Sistema de Layout e Navegação Mobile**
-- [ ] **PROMPT 4: Context Global e Gerenciamento de Estado**
+- [x] **PROMPT 4: Context Global e Gerenciamento de Estado**
 - [ ] **PROMPT 5: Cards de Resumo Financeiro**
 - [ ] **PROMPT 6: Header do Dashboard com Controles**
 - [ ] **PROMPT 7: Carrossel de Gastos por Categoria**
@@ -96,5 +96,21 @@ Status: ✅ Concluído | Data: 22/01/2026 | Build: ✅ (1 tentativa)
 **Tokens:**
 - Reutilização dos tokens semânticos e primitivos existentes.
 - Breakpoints: `lg` (1280px) usado como divisor entre layouts mobile e desktop.
+
+---
+
+### PROMPT 4: Context Global e Gerenciamento de Estado
+Status: ✅ Concluído | Data: 22/01/2026 | Build: ✅ (1 tentativa)
+**Implementado:**
+- `src/constants/mockData.ts`: Dados fictícios para Transactions, Members, Accounts, Cards e Goals.
+- `src/context/FinanceContext.tsx`:
+  - Interface `FinanceContextType`.
+  - Provider com carregamento inicial dos mock data.
+  - State management para todas as entidades principais.
+- `src/hooks/useFinance.ts`: Custom hook para consumir o contexto com segurança.
+- `src/main.tsx`: Aplicação envelopada com `FinanceProvider`.
+**Refatoração:**
+- Correção de Warning na `Sidebar`, `HeaderMobile` e `MenuDropdown` (Logo component declarado mas não usado).
+- Ajuste na cor de tema do cartão mockado.
 
 ---

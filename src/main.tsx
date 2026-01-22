@@ -2,9 +2,12 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import App from './App.tsx'
 import './index.css'
+import { FinanceProvider } from './context/FinanceContext.tsx';
 
 createRoot(document.getElementById('root')!).render(
     <StrictMode>
-        <App />
+        <FinanceProvider>
+            <App />
+        </FinanceProvider>
     </StrictMode>,
 )
