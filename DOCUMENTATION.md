@@ -14,10 +14,10 @@
 - [x] **PROMPT 4: Context Global e Gerenciamento de Estado**
 - [x] **PROMPT 5: Cards de Resumo Financeiro**
 - [x] **PROMPT 6: Header do Dashboard com Controles**
-- [ ] **PROMPT 7: Carrossel de Gastos por Categoria**
-- [ ] **PROMPT 8: Gráfico de Fluxo Financeiro**
-- [ ] **PROMPT 9: Widget de Cartões de Crédito**
-- [ ] **PROMPT 10: Widget de Próximas Despesas**
+- [x] **PROMPT 7: Carrossel de Gastos por Categoria**
+- [x] **PROMPT 8: Gráfico de Fluxo Financeiro**
+- [x] **PROMPT 9: Widget de Cartões de Crédito**
+- [x] **PROMPT 10: Widget de Próximas Despesas**
 - [ ] **PROMPT 11: Tabela de Transações Detalhada**
 - [ ] **PROMPT 12: Modal de Nova Transação**
 - [ ] **PROMPT 13: Modal de Adicionar Membro**
@@ -141,5 +141,52 @@ Status: ✅ Concluído | Data: 22/01/2026 | Build: ✅ (1 tentativa com correç�
 - Correção de z-index e posicionamento dos popovers para evitar clipping.
 - Ajuste no estilo do botão "Nova Transação" (rounded-xl) conforme solicitado.
 - Fix de variáveis não utilizadas no DateRangePicker.
+
+---
+
+### PROMPT 7: Carrossel de Gastos por Categoria
+Status: ✅ Concluído | Data: 22/01/2026 | Build: ✅ (1 tentativa com correção de imports)
+**Implementado:**
+- `ExpensesCarousel`: Carrossel horizontal de cards de categoria.
+- `CategoryDonutCard`: Card individual com gráfico Donut (SVG) visualizando percentual de gastos da categoria.
+- Navegação: Botões laterais flutuantes e suporte a touch/scroll horizontal suave.
+- Lógica de Dados: Cálculo dinâmico de totais por categoria no `FinanceContext`.
+
+---
+
+### PROMPT 8: Gráfico de Fluxo Financeiro
+Status: ✅ Concluído | Data: 22/01/2026 | Build: ✅ (1 tentativa)
+**Implementado:**
+- `FinancialFlowChart`: Wrapper responsivo para Recharts AreaChart.
+- Visualização: Áreas sobrepostas (Receita vs Despesa) com Gradient Fills.
+- Tooltip Customizado: Estilizado conforme design system (fundo branco, shadow-xl).
+- Eixos e Grid: Customização minimalista, removendo linhas desnecessárias.
+
+---
+
+### PROMPT 9: Widget de Cartões de Crédito
+Status: ✅ Concluído | Data: 22/01/2026 | Build: ✅ (1 tentativa)
+**Implementado:**
+- `CreditCardsWidget`: Widget com paginação de cartões.
+- Ações Touch: Implementado swipe horizontal para navegar entre cartões no mobile.
+- Cards Individuais: Exibição de fatura atual, limite e barra de progresso de uso.
+- Temas: Suporte a temas de cartão (preto, laranja, azul, etc) via props.
+
+---
+
+### PROMPT 10: Widget de Próximas Despesas e Finalização de Layout
+Status: ✅ Concluído | Data: 22/01/2026 | Build: ✅ (2 tentativas)
+**Implementado:**
+- `UpcomingExpensesWidget`: Lista cronológica de contas a pagar.
+- Ações: Botão de "Check" interativo com animação e lógica `markAsPaid` no Contexto.
+- **Layout Refinado**:
+  - Reorganização do Grid do Dashboard:
+    - Coluna Esquerda (2/3): Cards de Resumo + Carrossel de Categorias (agrupados).
+    - Coluna Direita (1/3): Widget de Cartões.
+    - Linha Inferior: Gráfico de Fluxo (Espande) + Próximas Despesas.
+  - Padronização Visual: Headers de widgets unificados (Icon Circle + Title Bold).
+  - Alinhamentos finos removendo paddings extras para alinhamento vertical perfeito.
+**Tokens:**
+- Generalização de estilos de widget (`bg-white rounded-3xl p-6`).
 
 ---
